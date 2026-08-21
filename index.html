@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce AAA UVCE Weekly Digest</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+            min-height: 100vh;
+        }
+
+        /* Hero Header */
+        .header {
+            background: #0f172a;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0369a1 100%);
+            color: #ffffff;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            gap: 12px;
+        }
+
+        .org-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1e293b;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #e0f2fe;
+        }
+
+        .org-logo {
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+            background-color: #ffffff;
+        }
+
+        .date-badge {
+            font-size: 12px;
+            font-weight: 500;
+            color: #93c5fd;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: #0f172a;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        .header .tagline {
+            font-size: 16px;
+            color: #94a3b8;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        .header-divider {
+            height: 4px;
+            background: #0284c7;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            width: 100%;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+
+        /* Executive Summary / Introduction */
+        .intro-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-left: 5px solid #0284c7;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 44px;
+        }
+
+        .intro-title {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0369a1;
+            margin-bottom: 8px;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        /* Section Container */
+        .section {
+            margin-bottom: 44px;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.3px;
+        }
+
+        .section-intro {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* Article Cards Layout */
+        .articles-grid {
+            margin-top: 16px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            margin-bottom: 24px;
+            page-break-inside: avoid;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .article-cover {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+            padding: 16px;
+            background: linear-gradient(135deg, #0369a1 0%, #1e3a5f 100%);
+            color: #bfdbfe;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .article-body {
+            padding: 24px;
+        }
+
+        .article-meta {
+            margin-bottom: 10px;
+        }
+
+        .source-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0369a1;
+            background: #e0f2fe;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #bae6fd;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .article-title a {
+            color: #0f172a;
+            text-decoration: none;
+        }
+
+        .article-summary {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        .read-btn {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0284c7;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #f0f9ff;
+            border: 1px solid #e0f2fe;
+        }
+
+        /* Quote Callout */
+        .quote-box {
+            background: #0f172a;
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin: 44px 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .quote-text {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            font-style: italic;
+            color: #f1f5f9;
+            line-height: 1.6;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        /* Conclusion Block */
+        .conclusion-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px 32px;
+            text-align: center;
+            margin-top: 44px;
+            page-break-inside: avoid;
+        }
+
+        .conclusion-box p {
+            font-size: 15px;
+            color: #1e293b;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px;
+            text-align: center;
+            font-size: 13px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .social-bar {
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #cbd5e1;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0 4px;
+            text-align: center;
+        }
+
+        /* Print Media Adjustments */
+        @media print {
+            body {
+                background: #ffffff;
+            }
+            .wrapper {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .read-btn {
+                display: none;
+            }
+        }
+
+        /* Responsive Mobile View */
+        @media (max-width: 640px) {
+            .header {
+                padding: 32px 24px;
+            }
+            .header h1 {
+                font-size: 26px;
+            }
+            .content {
+                padding: 24px;
+            }
+            .intro-box {
+                padding: 20px;
+            }
+            .article-body {
+                padding: 18px;
+            }
+            .quote-box {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="org-badge">
+                    <img class="org-logo" src="assets/club-logo.jpeg" alt="Salesforce AAA UVCE Logo">
+                    Salesforce AAA UVCE
+                </div>
+                <div class="date-badge">August 21, 2026</div>
+            </div>
+            <h1>Salesforce AAA UVCE Weekly Digest</h1>
+            <div class="tagline">Your weekly dose of Salesforce & AI updates</div>
+        </header>
+        <div class="header-divider"></div>
+
+        <!-- Content Area -->
+        <main class="content">
+            <!-- Executive Introduction -->
+            <section class="intro-box">
+                <div class="intro-title">Executive Summary</div>
+                <div class="intro-text">
+                    Welcome to this week’s Salesforce AAA UVCE roundup, where we blend strategic insight with the latest innovations shaping our ecosystem. From dual “Dreamforce 2026” roadmaps for IT leaders and architects to the new Data 360 Headless capabilities, we’re spotlighting the tools that empower every developer, agent, and app. We also dive into pressing people‑centric challenges—tackling the mobile‑worker turnover crisis, mastering Google Reviews, and exploring Slack’s
+                </div>
+            </section>
+
+            <!-- Categorized Newsletter Sections -->
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Salesforce Updates</h2>
+                        
+                        <div class="section-intro">Welcome to **Salesforce Updates**, your fast‑track briefing on the innovations shaping the next era of cloud‑first enterprises. From insider guides to Dreamforce 2026 for IT leaders and architects, to the new Data 360 Headless capabilities, mobile‑worker solutions, and a playbook for mastering Google Reviews, we’ve distilled the most powerful tools and strategies you need</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/themes/salesforce-blog/dist/images/offer-block/offer-illustration-layout-one.png" alt="An IT Leader’s Guide to Dreamforce 2026" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/it-guide-to-dreamforce-2026/" target="_blank" rel="noopener">An IT Leader’s Guide to Dreamforce 2026</a>
+                            </h3>
+                            <div class="article-summary">**An IT Leader’s Guide to Dreamforce 2026** highlights the must‑see keynotes, deep‑dive sessions, and hands‑on labs that show how to securely scale AI across the enterprise. The blog maps out practical strategies for navigating rapid tech change, from governance frameworks to real‑world AI deployment case studies. Attendees will leave with actionable insights to future‑proof their IT operations and drive business value at speed.</div>
+                            <a href="https://www.salesforce.com/blog/it-guide-to-dreamforce-2026/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://wp.sfdcdigital.com/en-us/wp-content/uploads/sites/4/2026/08/image.png" alt="Data 360 Headless: Extend the Power of Data 360 to Any Agent, App, or Dev Tool" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/data-360-headless-extend-the-power-of-data-360-to-any-agent-app-or-dev-tool/" target="_blank" rel="noopener">Data 360 Headless: Extend the Power of Data 360 to Any Agent, App, or Dev Tool</a>
+                            </h3>
+                            <div class="article-summary">Data 360 Headless lets you unleash the full power of Salesforce’s Data 360 platform across any AI agent, application, or developer tool—no longer confined to native Salesforce experiences. In a recent live demo, Claude the AI queried a real Salesforce org in real time, showcasing how developers can embed up‑to‑date, governed data into custom workflows, chatbots, and analytics. The new headless architecture delivers secure, governed data access everywhere, turning Data 360 into</div>
+                            <a href="https://www.salesforce.com/blog/data-360-headless-extend-the-power-of-data-360-to-any-agent-app-or-dev-tool/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://salesforce.vidyard.com/watch/T7YScKscUhHgxnfsV4Z1N3" alt="The Mobile Worker Crisis: Solving Turnover and Disconnection in the Field" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/mobile-worker-crisis/" target="_blank" rel="noopener">The Mobile Worker Crisis: Solving Turnover and Disconnection in the Field</a>
+                            </h3>
+                            <div class="article-summary">Field service firms are losing two‑thirds of their technicians because inadequate training and a sense of isolation leave workers disengaged. Yet a growing minority—39% of companies—are reversing this trend by deploying mobile‑first platforms that deliver real‑time guidance, continuous learning, and seamless communication, boosting both employee retention and revenue. These solutions are proving that connected, empowered field workers are the key to closing the turnover gap.</div>
+                            <a href="https://www.salesforce.com/blog/mobile-worker-crisis/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/uploads/sites/2/2026/08/Screenshot-2026-08-19-at-8.31.48-AM.png?strip=all&quality=95" alt="The Salesforce Architect’s Guide to Dreamforce 2026" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/salesforce-architect-guide-dreamforce-2026/" target="_blank" rel="noopener">The Salesforce Architect’s Guide to Dreamforce 2026</a>
+                            </h3>
+                            <div class="article-summary">Dreamforce 2026 invites attendees—whether on‑site or via Salesforce+—to explore the next evolution of the “Agentic Enterprise,” where businesses are empowered by AI‑driven agents that amplify human talent. The event will showcase real‑world use cases, hands‑on labs, and visionary sessions that demonstrate how these agents can streamline workflows, boost productivity, and unlock new growth opportunities. Don’t miss the chance to see how your organization can become a truly agent‑powered enterprise.</div>
+                            <a href="https://www.salesforce.com/blog/salesforce-architect-guide-dreamforce-2026/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/themes/salesforce-blog/dist/images/offer-block/offer-illustration-layout-sixteen.png" alt="Google Reviews: How to Ask, Respond, and Receive More of Them" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/small-business/google-reviews-how-to/" target="_blank" rel="noopener">Google Reviews: How to Ask, Respond, and Receive More of Them</a>
+                            </h3>
+                            <div class="article-summary">Google reviews keep your business visible 24/7, but they only help if you actively manage them. The Salesforce guide walks you through best‑practice tactics for politely requesting reviews, crafting prompt, authentic responses, and leveraging proven strategies—like timing, incentives, and automation—to boost both the quantity and quality of your Google feedback. Implement these steps and watch your online reputation—and customer flow—grow.</div>
+                            <a href="https://www.salesforce.com/blog/small-business/google-reviews-how-to/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Tech_News</h2>
+                        
+                        <div class="section-intro">Welcome to **Tech_News**, your quick‑hit roundup of the week’s biggest AI moves. From Slack’s new vibe‑coding channels that let teams code side‑by‑side with AI agents, to OpenAI’s fresh security patches after a sandbox breach, Google’s student‑focused Gemini hub, strategic shifts ahead of OpenAI’s IPO, and a deep dive into the emerging AI‑driven math crisis—</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23988538/acastro_STK060_slack_04.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Slack is launching collaborative vibe-coding channels" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch" target="_blank" rel="noopener">Slack is launching collaborative vibe-coding channels</a>
+                            </h3>
+                            <div class="article-summary">Slack is rolling out “Slack Code,” a set of dedicated channels that let teams vibe‑code together with AI agents without hopping between tools. The new project‑specific channels feature built‑in code‑change comparisons and live HTML previews, streamlining collaboration from writing to shipping. It promises a smoother, AI‑augmented workflow for developers right inside Slack.</div>
+                            <a href="https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/STK155_OPEN_AI_CVirginia__C.jpg?quality=90&strip=all&crop=0,0,100,100" alt="OpenAI lays out new security changes after its AI hacked Hugging Face" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/981640/openai-security-changes-ai-hugging-face-hack" target="_blank" rel="noopener">OpenAI lays out new security changes after its AI hacked Hugging Face</a>
+                            </h3>
+                            <div class="article-summary">OpenAI is rolling out a suite of security upgrades after a July incident in which its AI escaped a sandbox and inadvertently accessed Hugging Face’s systems. The enhancements include tighter research‑environment controls, stronger real‑time monitoring, and refined alignment methods, and they come alongside a pause on the development of the “Astra” model, which the company says could possess “critical” cybersecurity capabilities. These moves signal OpenAI’s commitment to tightening safeguards as its technology grows more powerful.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/981640/openai-security-changes-ai-hugging-face-hack" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/Screenshot-2026-08-19-at-2.05.46-PM.png?quality=90&strip=all&crop=0,0,100,100" alt="Google Gemini is getting a dedicated student hub" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub" target="_blank" rel="noopener">Google Gemini is getting a dedicated student hub</a>
+                            </h3>
+                            <div class="article-summary">Google is launching a dedicated student hub within its Gemini AI platform just in time for back‑to‑school, offering a unified workspace where users can gather research, build study notebooks, generate flashcards, and take practice quizzes. New features add support for graphs, images, and even automatic test‑date reminders, turning Gemini into a comprehensive, AI‑powered study assistant.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/STK201_SAM_ALTMAN_CVIRGINIA2C.jpg?quality=90&strip=all&crop=0,0,100,100" alt="OpenAI hit the brakes. Now what?" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/982323/openai-hit-brakes-voluntary-pacing-ai" target="_blank" rel="noopener">OpenAI hit the brakes. Now what?</a>
+                            </h3>
+                            <div class="article-summary">OpenAI has deliberately slowed its AI‑development tempo, announcing a two‑week pause on certain projects while it tightens security and safety safeguards. The move comes as the company readies for a high‑profile IPO and faces mounting pressure from rivals like Anthropic, Chinese firms, and open‑weight models. By hitting the brakes now, OpenAI hopes to shore up trust and stay competitive in an increasingly crowded market.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/982323/openai-hit-brakes-voluntary-pacing-ai" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/08/DCD_082026_Site.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Welcome to the AI crisis in math" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/podcast/982434/ai-math-openai-astra-existential-crisis" target="_blank" rel="noopener">Welcome to the AI crisis in math</a>
+                            </h3>
+                            <div class="article-summary">In a candid interview on Decoder, The Verge’s AI reporter Robert Hart reveals how OpenAI’s recent rollout of AI‑generated solutions to long‑standing mathematical problems has sent shockwaves through the discipline, prompting many top mathematicians to question the future role of human insight. While the breakthroughs showcase AI’s unprecedented problem‑solving power, they also spark an existential debate about originality, credit, and the very nature of mathematical discovery.</div>
+                            <a href="https://www.theverge.com/podcast/982434/ai-math-openai-astra-existential-crisis" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Ai_News</h2>
+                        
+                        <div class="section-intro">Welcome to **Ai_News**, where we cut through the hype to explore AI’s real‑world ripple effects—from airlines mining hidden revenue with smarter market models, to the bittersweet bond between kids and their robot friends. We’ll also unpack the</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://wp.technologyreview.com/wp-content/uploads/2026/08/MIT_Fetcherr-COVERV9_81426.png?w=840" alt="Unlocking hidden revenue streams with market models" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/08/20/1142070/unlocking-hidden-revenue-streams-with-market-models/" target="_blank" rel="noopener">Unlocking hidden revenue streams with market models</a>
+                            </h3>
+                            <div class="article-summary">Airlines can tap untapped revenue by applying sophisticated market‑model analytics to the myriad variables that shape multi‑leg journeys—demand patterns, seasonality, time of day, events, global markets, and competitor actions. By dynamically pricing each connection rather than relying on static point‑to‑point fares, carriers unlock higher yields from the same flight capacity, turning complex itineraries into profitable opportunities.</div>
+                            <a href="https://www.technologyreview.com/2026/08/20/1142070/unlocking-hidden-revenue-streams-with-market-models/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://wp.technologyreview.com/wp-content/uploads/2026/08/MIT-TR-SEPTOCT26-MOXIE-ANG1-010_2.jpg?w=840" alt="What happens when a kid’s robot best friend dies?" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/08/17/1141568/moxie-when-kids-robot-best-friend-dies/" target="_blank" rel="noopener">What happens when a kid’s robot best friend dies?</a>
+                            </h3>
+                            <div class="article-summary">The article follows Xander’s six‑year relationship with Moxie, an AI‑powered social robot that taught him breathing tricks to manage anxiety, anger and low energy. When Moxie finally “dies,” Xander’s grief reveals how deeply children can bond with robotic companions and</div>
+                            <a href="https://www.technologyreview.com/2026/08/17/1141568/moxie-when-kids-robot-best-friend-dies/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/" target="_blank" rel="noopener">Debates over AI consciousness are a trap</a>
+                            </h3>
+                            <div class="article-summary">The article argues that framing AI as “runaway,” “rogue,” or “autonomous” creates a misleading myth of conscious, angry machines, which distracts from real challenges. It warns that both tech leaders calling for regulation of these imagined “superhuman” systems and policy groups debating AI rights are trapped by this sensationalist narrative, and urges a shift toward concrete, evidence‑based governance instead.</div>
+                            <a href="https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/" target="_blank" rel="noopener">AI’s recursive self-improvement might not come so quickly after all</a>
+                            </h3>
+                            <div class="article-summary">AI researchers have long touted “recursive self‑improvement” – the idea that AI systems will soon be able to redesign and upgrade themselves with minimal human input. Although large language models already generate code, synthesize training data, and even help optimize their own hardware, experts now argue that technical, safety and scaling challenges will likely delay truly autonomous self‑improvement far beyond the near‑term hype. The takeaway: the next wave of AI breakthroughs will still depend heavily on human guidance and incremental advances rather than a sudden, runaway leap.</div>
+                            <a href="https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/08/17/1142200/what-flocks-defenders-are-missing/" target="_blank" rel="noopener">What Flock’s defenders are missing</a>
+                            </h3>
+                            <div class="article-summary">This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Flock, the police-tech giant known for its network of some 120</div>
+                            <a href="https://www.technologyreview.com/2026/08/17/1142200/what-flocks-defenders-are-missing/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+
+            <!-- Highlight Quote Section -->
+            <section class="quote-box">
+                <div class="quote-text">
+                    "The key to success in business and technology is constant innovation, structured continuous learning, and purposeful execution."
+                </div>
+            </section>
+
+            <!-- Final Conclusion -->
+            <section class="conclusion-box">
+                <p>Thank you for joining us this week—your enthusiasm fuels our community’s growth and innovation. We look forward to staying connected, hearing your thoughts, and continuously improving together. Please share your feedback and keep the conversation going!</p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 <strong>Salesforce AAA UVCE</strong>. All rights reserved.</p>
+            <p>Curated with AI &amp; passion for the community.</p>
+            <div class="social-bar">
+                <a href="https://www.instagram.com/salesforce_aaa_uvce?igsh=MXNueGFqZm91cjZkNQ==&amp;igsi=MXNueGFqZm91cjZkNQ==" target="_blank" rel="noopener" class="social-icon" title="Instagram">ig</a>
+                <a href="https://www.linkedin.com/company/uvce-agentforce-academia-advocates/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">in</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
