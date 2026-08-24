@@ -3,7 +3,7 @@
 from typing import List, Dict
 from src.llm.ollama_client import OllamaClient
 from src.collector.rss_collector import Article
-from src.processor.summarizer import Summarizer
+from src.processor.summarizer import Summarizer, strip_markdown_emphasis
 
 
 class NewsletterGenerator:
@@ -71,10 +71,11 @@ class NewsletterGenerator:
 This week's top stories include:
 {headlines}
 
-Make it professional but friendly. Mention key themes:"""
+Make it professional but friendly. Mention key themes. Respond in plain text
+only, with no markdown formatting (no **bold**, no _italics_, no headers):"""
 
         try:
-            return self.llm.generate(prompt, temperature=0.7, max_tokens=200)
+            return strip_markdown_emphasis(self.llm.generate(prompt, temperature=0.7, max_tokens=200))
         except Exception:
             return "Welcome to this week's newsletter! Here are the latest updates from Salesforce and the AI world."
 
@@ -119,9 +120,10 @@ Make it professional but friendly. Mention key themes:"""
         """Generate newsletter conclusion."""
         prompt = f"""Write a brief conclusion (2-3 sentences) for the Salesforce AAA UVCE weekly newsletter.
 End with a call to action encouraging readers to stay connected and share feedback.
-Make it warm and professional:"""
+Make it warm and professional. Respond in plain text only, with no markdown
+formatting (no **bold**, no _italics_, no headers):"""
 
         try:
-            return self.llm.generate(prompt, temperature=0.7, max_tokens=150)
+            return strip_markdown_emphasis(self.llm.generate(prompt, temperature=0.7, max_tokens=150))
         except Exception:
             return "Thanks for reading! Stay connected with Salesforce AAA UVCE for more updates."
