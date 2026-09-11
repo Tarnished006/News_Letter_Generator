@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce AAA UVCE Weekly Digest</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+            min-height: 100vh;
+        }
+
+        /* Hero Header */
+        .header {
+            background: #0f172a;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0369a1 100%);
+            color: #ffffff;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            gap: 12px;
+        }
+
+        .org-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1e293b;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #e0f2fe;
+        }
+
+        .org-logo {
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+            background-color: #ffffff;
+        }
+
+        .date-badge {
+            font-size: 12px;
+            font-weight: 500;
+            color: #93c5fd;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: #0f172a;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        .header .tagline {
+            font-size: 16px;
+            color: #94a3b8;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        .header-divider {
+            height: 4px;
+            background: #0284c7;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            width: 100%;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+
+        /* Executive Summary / Introduction */
+        .intro-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-left: 5px solid #0284c7;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 44px;
+        }
+
+        .intro-title {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0369a1;
+            margin-bottom: 8px;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        /* Section Container */
+        .section {
+            margin-bottom: 44px;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.3px;
+        }
+
+        .section-intro {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* Article Cards Layout */
+        .articles-grid {
+            margin-top: 16px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            margin-bottom: 24px;
+            page-break-inside: avoid;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .article-cover {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+            padding: 16px;
+            background: linear-gradient(135deg, #0369a1 0%, #1e3a5f 100%);
+            color: #bfdbfe;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .article-body {
+            padding: 24px;
+        }
+
+        .article-meta {
+            margin-bottom: 10px;
+        }
+
+        .source-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0369a1;
+            background: #e0f2fe;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #bae6fd;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .article-title a {
+            color: #0f172a;
+            text-decoration: none;
+        }
+
+        .article-summary {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        .read-btn {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0284c7;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #f0f9ff;
+            border: 1px solid #e0f2fe;
+        }
+
+        /* Quote Callout */
+        .quote-box {
+            background: #0f172a;
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin: 44px 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .quote-text {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            font-style: italic;
+            color: #f1f5f9;
+            line-height: 1.6;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        /* Conclusion Block */
+        .conclusion-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px 32px;
+            text-align: center;
+            margin-top: 44px;
+            page-break-inside: avoid;
+        }
+
+        .conclusion-box p {
+            font-size: 15px;
+            color: #1e293b;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px;
+            text-align: center;
+            font-size: 13px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .social-bar {
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #cbd5e1;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0 4px;
+            text-align: center;
+        }
+
+        /* Print Media Adjustments */
+        @media print {
+            body {
+                background: #ffffff;
+            }
+            .wrapper {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .read-btn {
+                display: none;
+            }
+        }
+
+        /* Responsive Mobile View */
+        @media (max-width: 640px) {
+            .header {
+                padding: 32px 24px;
+            }
+            .header h1 {
+                font-size: 26px;
+            }
+            .content {
+                padding: 24px;
+            }
+            .intro-box {
+                padding: 20px;
+            }
+            .article-body {
+                padding: 18px;
+            }
+            .quote-box {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="org-badge">
+                    <img class="org-logo" src="assets/club-logo.jpeg" alt="Salesforce AAA UVCE Logo">
+                    Salesforce AAA UVCE
+                </div>
+                <div class="date-badge">September 11, 2026</div>
+            </div>
+            <h1>Salesforce AAA UVCE Weekly Digest</h1>
+            <div class="tagline">Your weekly dose of Salesforce & AI updates</div>
+        </header>
+        <div class="header-divider"></div>
+
+        <!-- Content Area -->
+        <main class="content">
+            <!-- Executive Introduction -->
+            <section class="intro-box">
+                <div class="intro-title">Executive Summary</div>
+                <div class="intro-text">
+                    Welcome to this week’s Salesforce AAA UVCE newsletter, where we celebrate the vibrant spirit of our community and the innovations shaping our future. From marking 20 years of the Trailblazer Community and exploring four ways to unlock more value with Salesforce partners at Dreamforce 2026, to designing scalable identity and access and unveiling Service Insights powered by Tableau Next, we’ve got a wealth of insights to
+                </div>
+            </section>
+
+            <!-- Categorized Newsletter Sections -->
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Salesforce Updates</h2>
+                        
+                        <div class="section-intro">Welcome to Salesforce Updates, where we celebrate the Trailblazer Community’s 20‑year journey, showcase the latest AI‑powered Service Insights, and reveal new strategies for scaling identity, access, and partner value at Dreamforce 2026. Dive in for practical guidance on leveraging</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/uploads/sites/2/2026/09/mvp18-979.jpg?strip=all&quality=95" alt="Celebrating 20 Years of the Trailblazer Community" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/trailblazer-community-20th-anniversary/" target="_blank" rel="noopener">Celebrating 20 Years of the Trailblazer Community</a>
+                            </h3>
+                            <div class="article-summary">Celebrating two decades since its 2006 launch, the Trailblazer Community has grown from a modest discussion board into a global network of millions who support one another’s learning and success. This milestone highlights how the community’s collaborative spirit has paved the way for today’s agentic AI innovations, empowering members to harness new technologies together.</div>
+                            <a href="https://www.salesforce.com/blog/trailblazer-community-20th-anniversary/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/uploads/sites/2/2026/09/EE-YB19-Dreamforce-DF2019-C360-Theater_2f4d94.jpg?strip=all&quality=95" alt="4 ways to unlock more value with Salesforce partners at Dreamforce 2026" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/4-ways-to-unlock-more-value-with-salesforce-partners-at-dreamforce-2026/" target="_blank" rel="noopener">4 ways to unlock more value with Salesforce partners at Dreamforce 2026</a>
+                            </h3>
+                            <div class="article-summary">Dreamforce 2026 showcases four strategic approaches to maximize value through Salesforce partners, from co‑creating tailored solutions and leveraging joint go‑to‑market programs to tapping into partner‑driven innovation labs and expanding ecosystem integrations. Attendees will learn how these collaborations can accelerate digital transformation, boost ROI, and unlock new revenue streams across industries.</div>
+                            <a href="https://www.salesforce.com/blog/4-ways-to-unlock-more-value-with-salesforce-partners-at-dreamforce-2026/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/themes/salesforce-blog/dist/images/offer-block/offer-illustration-layout-one.png" alt="Start with Accounts: Design Identity and Access That Scales" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/experience-cloud-identity-access-account/" target="_blank" rel="noopener">Start with Accounts: Design Identity and Access That Scales</a>
+                            </h3>
+                            <div class="article-summary">The article shows how to leverage Experience Cloud’s native Account object to streamline authentication, enforce data‑access rules, and simplify user onboarding—all through configuration rather than custom code. By centering identity and access design around accounts, admins can create a scalable, secure framework that grows with the business. This approach reduces complexity, speeds up deployments, and ensures consistent permissions across the organization.</div>
+                            <a href="https://www.salesforce.com/blog/experience-cloud-identity-access-account/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/uploads/sites/2/2026/09/cases-csat.png?w=1999" alt="Meet Service Insights: Agentic Analytics Built for Service Teams Powered by Tableau Next" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/service-insights-agentic-analytics-tableau-next/" target="_blank" rel="noopener">Meet Service Insights: Agentic Analytics Built for Service Teams Powered by Tableau Next</a>
+                            </h3>
+                            <div class="article-summary">Service Insights, the new AI‑driven analytics layer built into Tableau Next, gives service teams real‑time, purpose‑crafted metrics directly within their workflow, turning raw data into actionable recommendations. By surfacing predictive trends and root</div>
+                            <a href="https://www.salesforce.com/blog/service-insights-agentic-analytics-tableau-next/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/themes/salesforce-blog/dist/images/offer-block/offer-illustration-layout-four.png" alt="Living Our Values: Your Guide to Dreamforce 2026" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/platform-for-change-at-dreamforce/" target="_blank" rel="noopener">Living Our Values: Your Guide to Dreamforce 2026</a>
+                            </h3>
+                            <div class="article-summary">Dreamforce 2026 invites attendees to explore “Business as a Platform for Change,” offering a lineup of forward‑thinking sessions that showcase how technology can drive social impact. The event also features extensive networking opportunities, hands‑on workshops, and interactive activities designed to spark collaboration and inspire innovative solutions. Don’t miss the chance to connect with industry leaders and shape the future of purposeful business.</div>
+                            <a href="https://www.salesforce.com/blog/platform-for-change-at-dreamforce/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Tech_News</h2>
+                        
+                        <div class="section-intro">Tech_News brings you the latest sparks where AI meets creativity and rigor— from OpenAI’s bold claims on solving a Millennium Prize problem and the ensuing academic debate, to Universal Music’s new AI-powered remix platform. We also spotlight Slack’s interactive “vibe‑code” charts and Apple’s privacy‑first AI audio features, showing how intelligent tools are resh</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2236544323.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Mathematicians want proof OpenAI didn’t use their work" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/993263/where-does-openai-get-mathematics-training-data" target="_blank" rel="noopener">Mathematicians want proof OpenAI didn’t use their work</a>
+                            </h3>
+                            <div class="article-summary">Mathematician X has joined the growing criticism of OpenAI, demanding concrete evidence that the company’s models weren’t trained on his unpublished research and accusing the firm of “unethical” and “dishonest” data practices. The call follows a recent dispute over whether OpenAI’s breakthroughs in mathematics rely on proprietary academic work, highlighting calls for greater transparency about the training data behind its AI.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/993263/where-does-openai-get-mathematics-training-data" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2292626872.jpg?quality=90&strip=all&crop=0,0,100,100" alt="OpenAI’s sly mathematical breakthrough sends a chill through academia" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/992953/openai-math-millennium-prize-navier-stokes" target="_blank" rel="noopener">OpenAI’s sly mathematical breakthrough sends a chill through academia</a>
+                            </h3>
+                            <div class="article-summary">OpenAI claimed Tuesday that its AI has solved a Millennium Prize problem, marking a historic milestone that showcases how quickly artificial intelligence is reshaping mathematical research. The announcement, however, was clouded by controversy over the unconventional methods and opaque verification process behind the result, prompting heated debate in the academic community about credibility and the future role of AI in discovery.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/992953/openai-math-millennium-prize-navier-stokes" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/IMG_2464.png?quality=90&strip=all&crop=0,0,100,100" alt="Slack can now vibe-code interactive charts and reports inside chats" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/tech/989853/slackforce-surfaces-launch" target="_blank" rel="noopener">Slack can now vibe-code interactive charts and reports inside chats</a>
+                            </h3>
+                            <div class="article-summary">Slack is rolling out “Slackforce Surfaces,” a new AI‑powered feature that lets users create interactive charts, polls, dashboards, presentations and even microsites right within a chat. By describing what they need to Slackbot, users can pull data from recent conversations and linked apps such as Google Drive or Salesforce, turning everyday messages into dynamic reports and visual tools. This integration aims to make collaboration faster and more visual without leaving the Slack workspace.</div>
+                            <a href="https://www.theverge.com/tech/989853/slackforce-surfaces-launch" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK467_AI_MUSIC_CVirginia_A.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Universal Music is launching an AI music platform with ElevenLabs" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/993465/universal-music-elevenlabs-ai" target="_blank" rel="noopener">Universal Music is launching an AI music platform with ElevenLabs</a>
+                            </h3>
+                            <div class="article-summary">Universal Music Group is launching a new AI-powered platform that will allow users to draw from its catalog of licensed music to create song remixes, mashups, and new takes on tracks, according to an </div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/993465/universal-music-elevenlabs-ai" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/apple-audio-intelligence-recap-wide.jpeg?quality=90&strip=all&crop=0,0,100,100" alt="Read the Apple document explaining how new listening features still protect your privacy" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/tech/992919/apple-siri-ai-audio-intelligence-privacy" target="_blank" rel="noopener">Read the Apple document explaining how new listening features still protect your privacy</a>
+                            </h3>
+                            <div class="article-summary">Apple’s new Siri AI Audio Intelligence suite—featuring Siri Recap, Live Rewind, Sound Recognition and Music Recognition—relies on “ambient listening,” but the company says it never stores raw audio on its servers. Instead, Apple processes snippets locally, discarding the recordings after extracting only the necessary metadata, and uses differential privacy to keep individual users unidentifiable. The Verge notes that Apple’s detailed privacy document aims to reassure users that the convenience of these features won’t come at the cost of personal data exposure.</div>
+                            <a href="https://www.theverge.com/tech/992919/apple-siri-ai-audio-intelligence-privacy" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Ai_News</h2>
+                        
+                        <div class="section-intro">Welcome to Ai_News, where we explore the cutting‑edge challenges and breakthroughs shaping the AI landscape—from rethinking memory, storage, and power architecture for real‑time inference, to the ethical and mathematical debates sparked by OpenAI’s latest claims. We also dive into how AI‑dr</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://wp.technologyreview.com/wp-content/uploads/2026/07/iStock-2239372581.jpg?w=840" alt="Architecting memory and storage in the AI era" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/09/04/1140872/architecting-memory-and-storage-in-the-ai-era/" target="_blank" rel="noopener">Architecting memory and storage in the AI era</a>
+                            </h3>
+                            <div class="article-summary">The article</div>
+                            <a href="https://www.technologyreview.com/2026/09/04/1140872/architecting-memory-and-storage-in-the-ai-era/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://wp.technologyreview.com/wp-content/uploads/2026/08/ON-contributed-image.jpg?w=840" alt="Powering AI is an architecture problem" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/09/10/1141649/powering-ai-is-an-architecture-problem/" target="_blank" rel="noopener">Powering AI is an architecture problem</a>
+                            </h3>
+                            <div class="article-summary">A recent transmission line fault in Ashburn, Virginia—home to the world’s largest data‑center cluster—instantaneously shed more than 3 GW of load, echoing a 2024 outage that knocked 1,500 MW off the grid. These incidents underscore that the rapid growth of AI workloads is hitting the limits of existing power‑distribution architecture, demanding more resilient grid design, redundancy and coordinated planning. Without tackling the underlying infrastructure</div>
+                            <a href="https://www.technologyreview.com/2026/09/10/1141649/powering-ai-is-an-architecture-problem/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/" target="_blank" rel="noopener">What OpenAI’s latest controversy tells us about the future of math</a>
+                            </h3>
+                            <div class="article-summary">OpenAI claimed its AI agents have solved a Millennium Prize Problem, a breakthrough that would normally cement the company’s leadership in AI‑driven research. However, the announcement quickly sparked controversy, with critics questioning the validity of the proof, the transparency of the methodology, and the broader implications for how AI contributions to mathematics are vetted and credited. The episode highlights growing pains in integrating AI into rigorous scientific fields and raises urgent questions about standards, accountability, and the future role of machine intelligence in discovery.</div>
+                            <a href="https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/09/04/1143452/drone-data-wild-west/" target="_blank" rel="noopener">Data from drones in Ukraine is fueling a new Wild West marketplace</a>
+                            </h3>
+                            <div class="article-summary">Drone footage and sensor data collected over Ukraine’s battlefields are being turned into a lucrative, open‑market commodity that defense firms and AI developers can buy, sell, and repurpose long after the conflicts end. As drones become ubiquitous weapons, the massive streams of high‑resolution imagery, thermal scans and telemetry are spawning a “Wild West” data marketplace where proprietary analytics, training models and even counterfeit intelligence thrive, raising both commercial opportunities and security concerns.</div>
+                            <a href="https://www.technologyreview.com/2026/09/04/1143452/drone-data-wild-west/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/09/08/1142088/danijar-hafner-developing-plan-ahead-agents/" target="_blank" rel="noopener">This AI entrepreneur is developing agents that can plan ahead for the unexpected</a>
+                            </h3>
+                            <div class="article-summary">Danijar Hafner’s stealth startup is building AI agents that can anticipate and adapt to unforeseen situations by learning to plan ahead like humans do. Leveraging advanced model‑based reinforcement learning, the team aims to create systems that simulate future outcomes and adjust strategies in real time, promising more reliable and flexible automation across industries. If successful, these “world‑model” agents could bridge the gap between narrow AI tools and truly adaptable, general‑purpose assistants.</div>
+                            <a href="https://www.technologyreview.com/2026/09/08/1142088/danijar-hafner-developing-plan-ahead-agents/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+
+            <!-- Highlight Quote Section -->
+            <section class="quote-box">
+                <div class="quote-text">
+                    "The key to success in business and technology is constant innovation, structured continuous learning, and purposeful execution."
+                </div>
+            </section>
+
+            <!-- Final Conclusion -->
+            <section class="conclusion-box">
+                <p>Thank you for joining us in another insightful edition of the Salesforce AAA UVCE weekly newsletter. We hope you feel inspired and informed, and we look forward to staying connected with you as we continue to grow together. Please share your thoughts and feedback with us so we can keep delivering the content</p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 <strong>Salesforce AAA UVCE</strong>. All rights reserved.</p>
+            <p>Curated with AI &amp; passion for the community.</p>
+            <div class="social-bar">
+                <a href="https://www.instagram.com/salesforce_aaa_uvce?igsh=MXNueGFqZm91cjZkNQ==&amp;igsi=MXNueGFqZm91cjZkNQ==" target="_blank" rel="noopener" class="social-icon" title="Instagram">ig</a>
+                <a href="https://www.linkedin.com/company/uvce-agentforce-academia-advocates/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">in</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
