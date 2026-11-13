@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce AAA UVCE Weekly Digest</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .wrapper {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+            min-height: 100vh;
+        }
+
+        /* Hero Header */
+        .header {
+            background: #0f172a;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #0369a1 100%);
+            color: #ffffff;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            gap: 12px;
+        }
+
+        .org-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #1e293b;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #e0f2fe;
+        }
+
+        .org-logo {
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
+            background-color: #ffffff;
+        }
+
+        .date-badge {
+            font-size: 12px;
+            font-weight: 500;
+            color: #93c5fd;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: #0f172a;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .header h1 {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 34px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+        }
+
+        .header .tagline {
+            font-size: 16px;
+            color: #94a3b8;
+            font-weight: 400;
+            max-width: 600px;
+        }
+
+        .header-divider {
+            height: 4px;
+            background: #0284c7;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+            width: 100%;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+
+        /* Executive Summary / Introduction */
+        .intro-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-left: 5px solid #0284c7;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 44px;
+        }
+
+        .intro-title {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0369a1;
+            margin-bottom: 8px;
+        }
+
+        .intro-text {
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        /* Section Container */
+        .section {
+            margin-bottom: 44px;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: -0.3px;
+        }
+
+        .section-intro {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 4px;
+        }
+
+        /* Article Cards Layout */
+        .articles-grid {
+            margin-top: 16px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            margin-bottom: 24px;
+            page-break-inside: avoid;
+        }
+
+        .article-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .article-cover {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+            padding: 16px;
+            background: linear-gradient(135deg, #0369a1 0%, #1e3a5f 100%);
+            color: #bfdbfe;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .article-body {
+            padding: 24px;
+        }
+
+        .article-meta {
+            margin-bottom: 10px;
+        }
+
+        .source-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0369a1;
+            background: #e0f2fe;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #bae6fd;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .article-title a {
+            color: #0f172a;
+            text-decoration: none;
+        }
+
+        .article-summary {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.65;
+            margin-bottom: 16px;
+        }
+
+        .read-btn {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #0284c7;
+            text-decoration: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #f0f9ff;
+            border: 1px solid #e0f2fe;
+        }
+
+        /* Quote Callout */
+        .quote-box {
+            background: #0f172a;
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin: 44px 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .quote-text {
+            font-family: 'Outfit', 'Segoe UI', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            font-style: italic;
+            color: #f1f5f9;
+            line-height: 1.6;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        /* Conclusion Block */
+        .conclusion-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px 32px;
+            text-align: center;
+            margin-top: 44px;
+            page-break-inside: avoid;
+        }
+
+        .conclusion-box p {
+            font-size: 15px;
+            color: #1e293b;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 40px;
+            text-align: center;
+            font-size: 13px;
+            border-top: 1px solid #1e293b;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: #38bdf8;
+            text-decoration: none;
+        }
+
+        .social-bar {
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #cbd5e1;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0 4px;
+            text-align: center;
+        }
+
+        /* Print Media Adjustments */
+        @media print {
+            body {
+                background: #ffffff;
+            }
+            .wrapper {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .read-btn {
+                display: none;
+            }
+        }
+
+        /* Responsive Mobile View */
+        @media (max-width: 640px) {
+            .header {
+                padding: 32px 24px;
+            }
+            .header h1 {
+                font-size: 26px;
+            }
+            .content {
+                padding: 24px;
+            }
+            .intro-box {
+                padding: 20px;
+            }
+            .article-body {
+                padding: 18px;
+            }
+            .quote-box {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="org-badge">
+                    <img class="org-logo" src="assets/club-logo.jpeg" alt="Salesforce AAA UVCE Logo">
+                    Salesforce AAA UVCE
+                </div>
+                <div class="date-badge">November 13, 2026</div>
+            </div>
+            <h1>Salesforce AAA UVCE Weekly Digest</h1>
+            <div class="tagline">Your weekly dose of Salesforce & AI updates</div>
+        </header>
+        <div class="header-divider"></div>
+
+        <!-- Content Area -->
+        <main class="content">
+            <!-- Executive Introduction -->
+            <section class="intro-box">
+                <div class="intro-title">Executive Summary</div>
+                <div class="intro-text">
+                    Welcome to this week’s Salesforce AAA UVCE roundup, where we’re spotlighting the latest strides in securing your platform, empowering agents with the new Salesforce Catalog, and turning architectural objections into decisive outcomes. You’ll also discover how to launch an agentic contact center in minutes, unify service and sales for a seamless customer journey, and stay ahead of the AI curve with insights on Nvidia’s leadership change, Google’s Gemini breakthrough, and a fun myth‑busting note on AI‑found Maya sites. Happy reading!
+                </div>
+            </section>
+
+            <!-- Categorized Newsletter Sections -->
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Salesforce Updates</h2>
+                        
+                        <div class="section-intro">Welcome to this week’s Salesforce Updates, where we spotlight the power of agentic technology—from AI‑driven security reporting and rapid contact‑center launches to smarter Catalog insights that eliminate guesswork for agents. Discover how architects can turn objections into decisions, and see why unifying service and sales is the secret to a seamless, end‑to‑end customer journey.</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="data:image/png;base64,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" alt="Securing Salesforce with Salesforce: Retiring the Catch-All Inbox for an Agentic Frontline" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/securing-salesforce-agentic-security-triage/" target="_blank" rel="noopener">Securing Salesforce with Salesforce: Retiring the Catch-All Inbox for an Agentic Frontline</a>
+                            </h3>
+                            <div class="article-summary">Salesforce created an AI‑driven security reporting agent that integrates Agentforce, Slack, and Service Cloud to replace the old “catch‑all” inbox, automating intake and routing of security alerts. The solution boosts report quality and speeds up triage, letting security teams concentrate on the most critical threats. This agentic frontline streamlines workflows and enhances overall security posture.</div>
+                            <a href="https://www.salesforce.com/blog/securing-salesforce-agentic-security-triage/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/uploads/sites/2/2026/11/image1_ee0631.png?strip=all&quality=95" alt="With Salesforce Catalog, agents stop guessing how your org works" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/salesforce-catalog-ai-agents/" target="_blank" rel="noopener">With Salesforce Catalog, agents stop guessing how your org works</a>
+                            </h3>
+                            <div class="article-summary">Salesforce Catalog gives service agents a clear, searchable view of every object, field and relationship in an org, eliminating the guesswork that slows down case resolution. By instantly surfacing the exact data source behind metrics like CSAT scores, teams can troubleshoot issues faster and deliver more consistent, confident support. The result is higher efficiency, reduced errors, and a smoother experience for both agents and customers.</div>
+                            <a href="https://www.salesforce.com/blog/salesforce-catalog-ai-agents/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/themes/salesforce-blog/dist/images/offer-block/offer-illustration-layout-one.png" alt="Talk Like an Architect: How to Turn Objections Into Decisions" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/talk-like-an-architect-turn-objections-into-decisions/" target="_blank" rel="noopener">Talk Like an Architect: How to Turn Objections Into Decisions</a>
+                            </h3>
+                            <div class="article-summary">In part four of the “Talk Like an Architect” series, Salesforce explains that objections are a normal, valuable part of architectural discussions, not roadblocks. By listening actively, reframing concerns as design opportunities, and guiding stakeholders toward clear choices, architects can turn push‑back into decisive progress. The piece offers practical tactics for transforming resistance into collaborative decision‑making.</div>
+                            <a href="https://www.salesforce.com/blog/talk-like-an-architect-turn-objections-into-decisions/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/themes/salesforce-blog/dist/images/offer-block/offer-illustration-layout-twelve.png" alt="From Months to Minutes: How to Launch an Agentic Contact Center Fast" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/launch-agentic-contact-center/" target="_blank" rel="noopener">From Months to Minutes: How to Launch an Agentic Contact Center Fast</a>
+                            </h3>
+                            <div class="article-summary">A unified, agentic platform lets you launch a fully functional contact center in under an hour by leveraging pre‑built templates, seamless data integration, and AI‑driven routing. The key to speed is preparing clean customer data, aligning teams on a single workflow, and empowering agents with real‑time insights. With these steps, businesses can transform months of setup into minutes and deliver faster, more personalized service.</div>
+                            <a href="https://www.salesforce.com/blog/launch-agentic-contact-center/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.salesforce.com/blog/wp-content/themes/salesforce-blog/dist/images/offer-block/offer-illustration-layout-sixteen.png" alt="Service and Sales: Unifying the Customer Journey for a Better Customer Experience" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">Salesforce Blog</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.salesforce.com/blog/service-sales-unified-customer/" target="_blank" rel="noopener">Service and Sales: Unifying the Customer Journey for a Better Customer Experience</a>
+                            </h3>
+                            <div class="article-summary">By integrating sales and service teams, companies turn a single transaction into an ongoing partnership, ensuring customers receive consistent support from the moment a deal closes through long‑term success. This unified approach eliminates hand‑off gaps, accelerates issue resolution, and builds deeper trust, ultimately driving higher satisfaction and repeat business. Salesforce’s framework shows that a seamless customer journey not only improves experience but also fuels growth across the entire organization.</div>
+                            <a href="https://www.salesforce.com/blog/service-sales-unified-customer/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Tech_News</h2>
+                        
+                        <div class="section-intro">Tech_News brings you the week’s most gripping tech stories—from the shock resignation of Nvidia’s co‑founder Jensen Huang and the fallout revealed in internal emails, to Google’s latest Gemini 4 Hydrogen model tackling complex, multi</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STKP210_JENSEN_HUANG_A.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Nvidia CEO Jensen Huang has resigned. What happens next?" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang" target="_blank" rel="noopener">Nvidia CEO Jensen Huang has resigned. What happens next?</a>
+                            </h3>
+                            <div class="article-summary">Nvidia’s co‑founder and long‑time CEO Jensen Huang stepped down after revelations of multiple affairs, including one with a Megaspeed executive and another with a senior Nvidia manager reporting directly to him. The board launched an internal probe following the disclosures, and investors are now watching how the company will navigate leadership transition and restore confidence.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/1030422/nvidia-jensen-huang-ai-china-alice-huang" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25290329/STK255_Google_Gemini_A.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Google’s new Gemini model is better at understanding complicated questions" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen" target="_blank" rel="noopener">Google’s new Gemini model is better at understanding complicated questions</a>
+                            </h3>
+                            <div class="article-summary">Google’s Gemini 4 Hydrogen model is designed to tackle complex, multi‑part queries, decipher hard‑to‑understand typos, and fulfill highly specific requests by breaking down each component and answering it separately. The upgrade rolls out today across Google Search, the Gemini app, and all service tiers, promising more helpful and precise AI responses.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/maya-sites.jpg?quality=90&strip=all&crop=0,0,100,100" alt="No, AI agents did not discover a previously unknown Maya site" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/1032125/ai-agents-maya-site-archeology-discovery" target="_blank" rel="noopener">No, AI agents did not discover a previously unknown Maya site</a>
+                            </h3>
+                            <div class="article-summary">Google researcher Pietro Miotti announced that AI agents had uncovered a “new” Maya site in Mexico, only to learn it had already been documented in a scholarly article the previous year. The mix‑up sparked backlash from archaeologists, highlighting the limits of AI in scholarly research and the need for rigorous verification before publicizing findings. This episode serves as a cautionary tale about over‑reliance on AI for discovery claims.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/1032125/ai-agents-maya-site-archeology-discovery" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/STKS539_AI_AGENTS_SHOPPING_E.jpg?quality=90&strip=all&crop=0,0,100,100" alt="AI chatbots are recommending fake retail websites, study finds" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/1032020/gemini-chatgpt-perplexity-shopping-test-risky-fake-websites-citations" target="_blank" rel="noopener">AI chatbots are recommending fake retail websites, study finds</a>
+                            </h3>
+                            <div class="article-summary">A new study by IP‑protection firm Podqi, shared with The Verge, found that popular AI chatbots such as ChatGPT, Gemini and Perplexity can steer shoppers toward counterfeit or unsafe retail sites when asked product‑search questions. The researchers tested a range of shopping queries and discovered that the bots often suggest impostor websites, exposing users to fraud and security risks. This highlights the need for better safeguards and clearer guidance when using AI assistants for online shopping.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/1032020/gemini-chatgpt-perplexity-shopping-test-risky-fake-websites-citations" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25343254/STK083_B_NVIDIA_D.jpg?quality=90&strip=all&crop=0,0,100,100" alt="Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">The Verge AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.theverge.com/ai-artificial-intelligence/1032028/read-nvidias-internal-emails-jensen-huang" target="_blank" rel="noopener">Read Nvidia’s internal emails about the ‘extraordinarily difficult period’ amid CEO shakeup</a>
+                            </h3>
+                            <div class="article-summary">Nvidia co‑founder Jensen Huang stepped down as CEO after the board launched an investigation into alleged extramarital affairs with a direct report and a suspected Chinese spy. New board chair Harvey Jones announced the resignation, marking a turbulent leadership transition for the AI‑chip giant. The company now faces an “extraordinarily difficult period” as it navigates the fallout and seeks stability.</div>
+                            <a href="https://www.theverge.com/ai-artificial-intelligence/1032028/read-nvidias-internal-emails-jensen-huang" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+            <section class="section">
+                <div class="section-header">
+                    <div>
+                        <h2>Ai_News</h2>
+                        
+                        <div class="section-intro">Welcome to Ai_News, where we spotlight the latest breakthroughs shaping the AI frontier—from open‑source, self‑hostable</div>
+                        
+                    </div>
+                </div>
+
+                <div class="articles-grid">
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://www.marktechpost.com/wp-content/uploads/2026/11/image.png" alt="CopilotKit Releases OpenBot 1.0: An MIT-Licensed, Self-Hostable AI Coworker With Built-In Governance" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MarkTechPost</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.marktechpost.com/2026/11/12/copilotkit-openbot-1-0-open-source-ai-coworker/" target="_blank" rel="noopener">CopilotKit Releases OpenBot 1.0: An MIT-Licensed, Self-Hostable AI Coworker With Built-In Governance</a>
+                            </h3>
+                            <div class="article-summary">CopilotKit has launched OpenBot 1.0, an MIT‑licensed, self‑hosted AI coworker platform that lets companies run their own agents, models and infrastructure. Every bot action is automatically vetted by a policy engine and recorded in an audit trail, providing built‑in governance and traceability. This release aims to give enterprises a secure, customizable AI assistant they can control end‑to‑end.</div>
+                            <a href="https://www.marktechpost.com/2026/11/12/copilotkit-openbot-1-0-open-source-ai-coworker/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <img src="https://s.w.org/images/core/emoji/17.0.2/72x72/25b6.png" alt="MBZUAI’s IFM Releases PAN 2, an Open 29B World Model for Physical AI" class="article-image" onerror="this.style.display='none'">
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MarkTechPost</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.marktechpost.com/2026/11/10/ifm-pan-2-open-world-model/" target="_blank" rel="noopener">MBZUAI’s IFM Releases PAN 2, an Open 29B World Model for Physical AI</a>
+                            </h3>
+                            <div class="article-summary">MBZUAI’s Institute of Foundation Models has launched PAN 2, an open‑source 29‑billion‑parameter diffusion transformer paired with an LLM planner that can predict up to 20 seconds of physical actions as video. Released under the Apache 2.0 license, PAN 2 aims to accelerate research in physical AI by providing a scalable world model for simulating real‑world outcomes.</div>
+                            <a href="https://www.marktechpost.com/2026/11/10/ifm-pan-2-open-world-model/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/11/09/1147654/innovating-with-ai-in-the-special-chemicals-industry/" target="_blank" rel="noopener">Innovating with AI in the special chemicals industry</a>
+                            </h3>
+                            <div class="article-summary">Specialty chemicals maker Lubrizol is using AI, cloud computing and advanced modeling to speed up product development, giving researchers rapid, data‑driven tools to test and refine ideas. By linking these technologies to high‑quality data and deep scientific expertise, the company aims to cut innovation cycles while staying grounded in the practical demands of market launch. This digital overhaul highlights how the sector can turn cutting‑edge AI into tangible, faster‑to‑market solutions.</div>
+                            <a href="https://www.technologyreview.com/2026/11/09/1147654/innovating-with-ai-in-the-special-chemicals-industry/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MIT Technology Review AI</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MIT Technology Review AI</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/" target="_blank" rel="noopener">Nvidia privately confirmed it could track chips to fight smuggling, even as industry publicly questioned feasibility</a>
+                            </h3>
+                            <div class="article-summary">Nvidia officials told Illinois Rep. Bill Foster that the anti‑smuggling tools outlined in the Chip Security Act are technically doable, contradicting an industry group’s claim they may be “potentially infeasible.” Foster, a Democrat on the Committee on… (the article notes his discussion with MIT Technology Review). This private confirmation suggests the tech could help trace chips and curb illicit trade, even as public doubts linger.</div>
+                            <a href="https://www.technologyreview.com/2026/11/12/1148483/nvidia-chip-tracking/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card">
+                        
+                        <div class="article-cover">MarkTechPost</div>
+                        
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span class="source-tag">MarkTechPost</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="https://www.marktechpost.com/2026/11/12/ibm-quantum-nighthawk-r3-520-qubits-1040-qubit-system-2027/" target="_blank" rel="noopener">IBM Announces IBM Quantum Nighthawk r3: A New Processor to Support 10k Quantum Operations on 520 Programmable Qubits</a>
+                            </h3>
+                            <div class="article-summary">IBM unveiled its Quantum Nighthawk r3 processor, featuring 520 programmable qubits capable of handling up to 10,000 quantum operations and promising performance gains of up to 19‑times over the earlier Heron system. Two r3 chips will be linked in 2027 to form a 1,040‑qubit machine, marking a significant step toward larger, more powerful quantum computers. This upgrade builds on the Nighthawk r2 platform and underscores IBM’s rapid progress in scaling quantum hardware.</div>
+                            <a href="https://www.marktechpost.com/2026/11/12/ibm-quantum-nighthawk-r3-520-qubits-1040-qubit-system-2027/" target="_blank" rel="noopener" class="read-btn">
+                                Read full story <span>&rarr;</span>
+                            </a>
+                        </div>
+                    </article>
+                    
+                </div>
+            </section>
+            
+
+            <!-- Highlight Quote Section -->
+            <section class="quote-box">
+                <div class="quote-text">
+                    "The key to success in business and technology is constant innovation, structured continuous learning, and purposeful execution."
+                </div>
+            </section>
+
+            <!-- Final Conclusion -->
+            <section class="conclusion-box">
+                <p>Thank you for joining us in this week’s highlights and for being an essential part of the Salesforce AAA UVCE community. We look forward to staying connected and hearing your thoughts, so please share your feedback and ideas with us. Your input helps us continue to grow together.</p>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 <strong>Salesforce AAA UVCE</strong>. All rights reserved.</p>
+            <p>Curated with AI &amp; passion for the community.</p>
+            <div class="social-bar">
+                <a href="https://www.instagram.com/salesforce_aaa_uvce?igsh=MXNueGFqZm91cjZkNQ==&amp;igsi=MXNueGFqZm91cjZkNQ==" target="_blank" rel="noopener" class="social-icon" title="Instagram">ig</a>
+                <a href="https://www.linkedin.com/company/uvce-agentforce-academia-advocates/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">in</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
